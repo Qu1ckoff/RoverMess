@@ -1,20 +1,20 @@
-using UnityEngine;
+п»їusing UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
 public class GameUIManager : MonoBehaviour
 {
-    [Header("Ссылки на логику игры")]
+    [Header("РЎСЃС‹Р»РєРё РЅР° Р»РѕРіРёРєСѓ РёРіСЂС‹")]
     public RoverEnergy playerEnergy;
     public TrashShredder warehouseShredder;
 
-    [Header("Элементы UI")]
+    [Header("Р­Р»РµРјРµРЅС‚С‹ UI")]
     public Slider energySlider;
     public TextMeshProUGUI quotaText;
     public Image sliderFillImage;
-    public TextMeshProUGUI energyPercentageText; // Новый слот под текст процентов внутри батарейки
+    public TextMeshProUGUI energyPercentageText; // РќРѕРІС‹Р№ СЃР»РѕС‚ РїРѕРґ С‚РµРєСЃС‚ РїСЂРѕС†РµРЅС‚РѕРІ РІРЅСѓС‚СЂРё Р±Р°С‚Р°СЂРµР№РєРё
 
-    [Header("Настройки цвета")]
+    [Header("РќР°СЃС‚СЂРѕР№РєРё С†РІРµС‚Р°")]
     public Gradient energyGradient;
 
     void Start()
@@ -38,17 +38,17 @@ public class GameUIManager : MonoBehaviour
         {
             energySlider.value = playerEnergy.currentEnergy;
 
-            // Вычисляем процент (от 0 до 100)
+            // Р’С‹С‡РёСЃР»СЏРµРј РїСЂРѕС†РµРЅС‚ (РѕС‚ 0 РґРѕ 100)
             float normalizedEnergy = playerEnergy.currentEnergy / playerEnergy.maxEnergy;
             int percentage = Mathf.RoundToInt(normalizedEnergy * 100f);
 
-            // Обновляем текст процентов
+            // РћР±РЅРѕРІР»СЏРµРј С‚РµРєСЃС‚ РїСЂРѕС†РµРЅС‚РѕРІ
             if (energyPercentageText != null)
             {
                 energyPercentageText.text = $"{percentage}%";
             }
 
-            // Меняем цвет полоски
+            // РњРµРЅСЏРµРј С†РІРµС‚ РїРѕР»РѕСЃРєРё
             if (sliderFillImage != null && energyGradient != null)
             {
                 sliderFillImage.color = energyGradient.Evaluate(normalizedEnergy);
@@ -63,12 +63,19 @@ public class GameUIManager : MonoBehaviour
             int collected = Mathf.RoundToInt(warehouseShredder.currentCollected);
             int target = Mathf.RoundToInt(warehouseShredder.targetQuota);
 
-            quotaText.text = $"КВОТА: {collected} / {target} кг";
+            quotaText.text = $"РљР’РћРўРђ: {collected} / {target} РєРі";
 
             if (warehouseShredder.checkQuotaCollected)
             {
                 quotaText.color = Color.green;
             }
         }
+    }
+
+    // РџСѓР±Р»РёС‡РЅС‹Р№ РјРµС‚РѕРґ РґР»СЏ РґРёРЅР°РјРёС‡РµСЃРєРѕРіРѕ РЅР°Р·РЅР°С‡РµРЅРёСЏ РЁСЂРµРґРµСЂР° РёР· РіРµРЅРµСЂР°С‚РѕСЂР°
+    public void InitializeShredder(TrashShredder shredder)
+    {
+        warehouseShredder = shredder;
+        Debug.Log("рџЋЇ UI СѓСЃРїРµС€РЅРѕ РїРѕРґРєР»СЋС‡РµРЅ Рє РґРёРЅР°РјРёС‡РµСЃРєРё СЃРѕР·РґР°РЅРЅРѕРјСѓ РЁСЂРµРґРµСЂСѓ!");
     }
 }

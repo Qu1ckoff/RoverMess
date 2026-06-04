@@ -13,7 +13,7 @@ public class RoverController : MonoBehaviour
 
     [Header("Физика заноса")]
     [Range(0f, 1f)]
-    public float driftFactor = 0.88f;   // Чем выше, тем сильнее скользит (0 - рельсы, 1 - лед). Оставим легкий скользящий вайб.
+    public float driftFactor = 0.88f;   // Чем выше, тем сильнее скользит (0 - рельсы, 1 - лед)
 
     private Rigidbody rb;
     private RoverEnergy energySystem;
@@ -70,6 +70,11 @@ public class RoverController : MonoBehaviour
             ApplyDrift();
             HandleEnergyConsumption();
         }
+        else
+        {
+            // Даже если энергия кончилась, катящийся робот все равно должен стоять ровно
+            StabilizeRotation();
+        }
     }
 
     void MoveRover()
@@ -92,18 +97,30 @@ public class RoverController : MonoBehaviour
             modifier = -1f;
         }
 
+        // 1. Считаем поворот только по оси Y на основе ввода игрока
         float turnDegrees = turnInput * rotationSpeed * modifier * Time.fixedDeltaTime;
-        Quaternion turnRotation = Quaternion.Euler(0f, turnDegrees, 0f);
-        rb.MoveRotation(rb.rotation * turnRotation);
+
+        // Получаем текущий угол по Y и прибавляем к нему смещение
+        float newAngleY = transform.eulerAngles.y + turnDegrees;
+
+        // 2. Жестко фиксируем X и Z в 0 градусов, а Y выставляем новый
+        Quaternion targetRotation = Quaternion.Euler(0f, newAngleY, 0f);
+
+        rb.MoveRotation(targetRotation);
+    }
+
+    // Метод для принудительного выравнивания, если робота наклонило силами PhysX при ударе
+    void StabilizeRotation()
+    {
+        Quaternion stableRotation = Quaternion.Euler(0f, transform.eulerAngles.y, 0f);
+        rb.MoveRotation(stableRotation);
     }
 
     void ApplyDrift()
     {
-        // Разделяем скорость на продольную и боковую
         Vector3 forwardVelocity = transform.forward * Vector3.Dot(rb.linearVelocity, transform.forward);
         Vector3 rightVelocity = transform.right * Vector3.Dot(rb.linearVelocity, transform.right);
 
-        // Постоянно применяем легкий занос при поворотах
         rb.linearVelocity = forwardVelocity + rightVelocity * driftFactor;
     }
 
