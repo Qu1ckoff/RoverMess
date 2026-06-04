@@ -800,15 +800,15 @@ MonoBehaviour:
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs:
-    - m_Data: 50880
+    - m_Data: 51414
     m_LastClickedID:
-      m_Data: 50880
+      m_Data: 51414
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 50738
-    - m_Data: 50740
-    - m_Data: 50742
-    - m_Data: 50876
+    - m_Data: 51286
+    - m_Data: 51288
+    - m_Data: 51290
+    - m_Data: 51402
     - m_Data: 1000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -843,9 +843,9 @@ MonoBehaviour:
       m_Data: 0
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 50738
-    - m_Data: 50740
-    - m_Data: 50742
+    - m_Data: 51286
+    - m_Data: 51288
+    - m_Data: 51290
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1005,8 +1005,6 @@ MonoBehaviour:
       m_LastClickedID:
         m_Data: 0
       m_ExpandedIDs:
-      - m_Data: -28898
-      - m_Data: -28764
       - m_Data: -1362
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -1671,9 +1669,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: -8.553504, y: 99.49447, z: -41.35029}
+    m_Target: {x: -8.9198265, y: 73.58354, z: -16.166082}
     speed: 2
-    m_Value: {x: -8.553504, y: 99.49447, z: -41.35029}
+    m_Value: {x: -8.9198265, y: 73.58354, z: -16.166082}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1720,13 +1718,13 @@ MonoBehaviour:
     m_gridOpacity: 0.5
     m_NearestPlaneToHandleMode: 0
   m_Rotation:
-    m_Target: {x: 0.61252314, y: 0.024980763, z: -0.019277347, w: 0.79019123}
+    m_Target: {x: 0.61872715, y: 0.03799576, z: -0.029897833, w: 0.78449446}
     speed: 2
-    m_Value: {x: 0.6123448, y: 0.02497349, z: -0.019271735, w: 0.78996116}
+    m_Value: {x: 0.6185439, y: 0.037984505, z: -0.029888978, w: 0.7842621}
   m_Size:
-    m_Target: 1.2265941
+    m_Target: 1.408159
     speed: 2
-    m_Value: 1.2265941
+    m_Value: 1.408159
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1744,8 +1742,8 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: 0.0055417498, y: 0.72879267, z: -0.0055110347, w: 0.68501973}
-  m_LastSceneViewOrtho: 1
+  m_LastSceneViewRotation: {x: 0.38751128, y: 0.00038072362, z: -0.00000018482919, w: 0.92218363}
+  m_LastSceneViewOrtho: 0
   m_Viewpoint:
     m_SceneView: {fileID: 21}
     m_CameraOverscanSettings:

@@ -526,13 +526,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 509338501}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
-  m_LocalPosition: {x: 0, y: 11, z: -11}
+  m_LocalRotation: {x: 0.42261827, y: 0, z: 0, w: 0.9063079}
+  m_LocalPosition: {x: 0, y: 11, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 50, y: 0, z: 0}
 --- !u!114 &509338506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -551,7 +551,7 @@ MonoBehaviour:
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
-  FollowOffset: {x: 0, y: 10, z: -6}
+  FollowOffset: {x: 0, y: 10, z: -7}
 --- !u!1 &514727563
 GameObject:
   m_ObjectHideFlags: 0
@@ -2059,6 +2059,7 @@ GameObject:
   - component: {fileID: 1947895521}
   - component: {fileID: 1947895520}
   - component: {fileID: 1947895524}
+  - component: {fileID: 1947895526}
   - component: {fileID: 1947895525}
   m_Layer: 0
   m_Name: Main Camera
@@ -2178,8 +2179,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1947895519}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
-  m_LocalPosition: {x: 0, y: 11, z: -11}
+  m_LocalRotation: {x: 0.42261827, y: 0, z: 0, w: 0.9063078}
+  m_LocalPosition: {x: 0, y: 11, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2240,6 +2241,24 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1947895526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947895519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3867343c7b045040bc2a6c8bba46e26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraVisionOccluder
+  target: {fileID: 1889790530}
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  fadeAlpha: 0.3
+  fadeSpeed: 5
 --- !u!1 &2033720361
 GameObject:
   m_ObjectHideFlags: 0
